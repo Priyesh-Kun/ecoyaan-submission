@@ -2,8 +2,6 @@
 
 A multi-step checkout flow built for the Ecoyaan frontend assignment.
 
-**Live Demo → [https://ecoyaan-submission-git-main-priyesh-mishras-projects.vercel.app/](https://ecoyaan-submission-git-main-priyesh-mishras-projects.vercel.app/)**
-
 ---
 
 ## Tech Stack
