@@ -6,7 +6,7 @@ A multi-step checkout flow built for the Ecoyaan frontend assignment.
 
 ## Tech Stack
 
-- **Next.js 14** (App Router) — SSR via Server Components
+- **Next.js 16** (App Router) — SSR via Server Components
 - **TypeScript** — typed props and shared interfaces
 - **Tailwind CSS v4** — utility-first styling
 - **React Context API** — cart and address state across steps
