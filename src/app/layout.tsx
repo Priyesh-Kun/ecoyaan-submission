@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 async function getCartData(): Promise<CartData> {
-  const res = await fetch("https://ecoyaan-submission-git-main-priyesh-mishras-projects.vercel.app/api/cart", {
+  const res = await fetch("http://localhost:3000/api/cart", {
     cache: "no-store",
   });
   if (!res.ok) throw new Error("Failed to fetch cart");
