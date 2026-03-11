@@ -1,37 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ecoyaan Checkout Flow
 
-## Getting Started
+A multi-step checkout flow built for the Ecoyaan frontend assignment.
 
-First, run the development server:
+**Live Demo → [(https://vercel.com/priyesh-mishras-projects/ecoyaan-submission/EjrArfdXgoHwSYEoqpfAQnQPLc2Y))](https://vercel.com/priyesh-mishras-projects/ecoyaan-submission/EjrArfdXgoHwSYEoqpfAQnQPLc2Y)**
+
+---
+
+## Tech Stack
+
+- **Next.js 14** (App Router) — SSR via Server Components
+- **TypeScript** — typed props and shared interfaces
+- **Tailwind CSS v4** — utility-first styling
+- **React Context API** — cart and address state across steps
+- **React Hook Form + Zod** — form validation
+- **Lucide React** — icons
+
+---
+
+## Running Locally
 
 ```bash
+git clone https://github.com/Priyesh-Kun/ecoyaan-submission.git
+cd ecoyaan-submission
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Architecture Notes
 
-## Learn More
+- **SSR** — the cart page is a Server Component that fetches from `/api/cart` on every request
+- **State** — `CartContext` holds cart items and shipping address across the 3-step flow; `subtotal` and `grandTotal` are derived in context
+- **Forms** — Zod schema validates email format, 10-digit phone, and 6-digit PIN; errors show on blur
+- **Routing** — payment page redirects to `/address` if no shipping address exists in context
 
-To learn more about Next.js, take a look at the following resources:
+## Flow
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# ecoyaan-submission
+```
+/ (Cart)  →  /address  →  /payment  →  /success
+```
